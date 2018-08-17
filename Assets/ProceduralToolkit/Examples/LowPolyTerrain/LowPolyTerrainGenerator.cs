@@ -18,6 +18,8 @@ namespace ProceduralToolkit.Examples
             public float cellSize = 1;
             public float noiseScale = 5;
             public Gradient gradient;
+            
+            public int noise_offset;
         }
 
         public static MeshDraft TerrainDraft(Config config)
@@ -55,6 +57,7 @@ namespace ProceduralToolkit.Examples
             {
                 for (int z = 0; z < zSegments; z++)
                 {
+
                     int index0 = 6*(x + z*xSegments);
                     int index1 = index0 + 1;
                     int index2 = index0 + 2;
@@ -62,10 +65,32 @@ namespace ProceduralToolkit.Examples
                     int index4 = index0 + 4;
                     int index5 = index0 + 5;
 
-                    float height00 = GetHeight(x + 0, z + 0, xSegments, zSegments, noiseOffset, config.noiseScale);
-                    float height01 = GetHeight(x + 0, z + 1, xSegments, zSegments, noiseOffset, config.noiseScale);
-                    float height10 = GetHeight(x + 1, z + 0, xSegments, zSegments, noiseOffset, config.noiseScale);
-                    float height11 = GetHeight(x + 1, z + 1, xSegments, zSegments, noiseOffset, config.noiseScale);
+                    // float height00 = GetHeight(x + 0, z + 0, xSegments, zSegments, noiseOffset, config.noiseScale);
+                    // float height01 = GetHeight(x + 0, z + 1, xSegments, zSegments, noiseOffset, config.noiseScale);
+                    // float height10 = GetHeight(x + 1, z + 0, xSegments, zSegments, noiseOffset, config.noiseScale);
+                    // float height11 = GetHeight(x + 1, z + 1, xSegments, zSegments, noiseOffset, config.noiseScale);
+
+                    float height00;
+                    float height01;
+                    float height10;
+                    float height11;
+
+                    if (z==0) {
+                      height00 = 0.5f;
+                      height01 = GetHeight(x + 0, z + 1, xSegments, zSegments, noiseOffset, config.noiseScale);
+                      height10 = 0.5f;
+                      height11 = GetHeight(x + 1, z + 1, xSegments, zSegments, noiseOffset, config.noiseScale);
+                    } else if (z+1 == zSegments) {
+                      height00 = GetHeight(x + 0, z + 0, xSegments, zSegments, noiseOffset, config.noiseScale);
+                      height01 = 0.5f;
+                      height10 = GetHeight(x + 1, z + 0, xSegments, zSegments, noiseOffset, config.noiseScale);
+                      height11 = 0.5f;
+                    }else {
+                        height00 = GetHeight(x + 0, z + 0, xSegments, zSegments, noiseOffset, config.noiseScale);
+                        height01 = GetHeight(x + 0, z + 1, xSegments, zSegments, noiseOffset, config.noiseScale);
+                        height10 = GetHeight(x + 1, z + 0, xSegments, zSegments, noiseOffset, config.noiseScale);
+                        height11 = GetHeight(x + 1, z + 1, xSegments, zSegments, noiseOffset, config.noiseScale);
+                    }
 
                     var vertex00 = new Vector3((x + 0)*xStep, height00*config.terrainSize.y, (z + 0)*zStep);
                     var vertex01 = new Vector3((x + 0)*xStep, height01*config.terrainSize.y, (z + 1)*zStep);
@@ -112,6 +137,8 @@ namespace ProceduralToolkit.Examples
         {
             float noiseX = noiseScale*x/xSegments + noiseOffset.x;
             float noiseZ = noiseScale*z/zSegments + noiseOffset.y;
+            //Debug.Log("noiseScale: " + noiseScale + " x: " + x + " xSegments: " + xSegments + " noiseX: " + noiseX);
+            //Debug.Log("noiseScale: " + noiseScale + " z: " + z + " zSegments: " + zSegments + " noiseZ: " + noiseZ);
             return Mathf.PerlinNoise(noiseX, noiseZ);
         }
     }

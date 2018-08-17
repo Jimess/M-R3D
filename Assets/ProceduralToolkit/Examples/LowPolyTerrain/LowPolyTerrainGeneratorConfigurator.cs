@@ -12,6 +12,8 @@ namespace ProceduralToolkit.Examples
         public MeshCollider terrainMeshCollider;
         public RectTransform leftPanel;
         public bool constantSeed = false;
+        public int noise_offset = 0;
+        public int seed;
         public LowPolyTerrainGenerator.Config config = new LowPolyTerrainGenerator.Config();
 
         private const int minXSize = 10;
@@ -79,7 +81,8 @@ namespace ProceduralToolkit.Examples
         {
             if (constantSeed)
             {
-                Random.InitState(0);
+                Random.InitState(seed);
+                config.noise_offset = this.noise_offset;
             }
 
             if (randomizeConfig)
