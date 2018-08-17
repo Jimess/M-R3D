@@ -1,0 +1,57 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class DrawWithMouse : MonoBehaviour {
+	
+	public Camera _camera;
+	public Shader _drawShader;
+	private RenderTexture _spaltmap;
+	private Material _sandMaterial, _drawMaterial;
+	private RaycastHit _hit;
+
+	public RenderTexture _temp;
+
+	public LayerMask mask;
+
+	// Use this for initialization
+	void Start () {
+		_drawMaterial = new Material(_drawShader);
+		_drawMaterial.SetVector("_Color", Color.red);
+		_drawMaterial.SetVector("_Coordinate", new Vector4(1,1,0,0));
+
+		_sandMaterial = GetComponent<MeshRenderer>().material;
+
+		_spaltmap = new RenderTexture(200,200,0,RenderTextureFormat.ARGBFloat);
+
+		_sandMaterial.SetTexture("_Splat", _spaltmap);
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		if (Input.GetKey(KeyCode.Mouse0)) {
+			//_drawMaterial.SetVector("_Coordinate", new Vector4(Random.Range(0f, 1f),Random.Range(0f, 1f),0,0));
+			//Debug.DrawRay (_camera.transform.position, _camera.transform.forward, Color.red);
+			if (Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out _hit, 500f, mask.value)) {
+				//Debug.DrawRay(_camera.transform.position, _hit.point, Color.red);
+				Vector4 temp_vec = new Vector4(_hit.textureCoord.x, _hit.textureCoord.y ,0 ,0);
+				//Debug.Log(temp_vec);
+				_drawMaterial.SetVector("_Coordinate", temp_vec);
+				
+				//_drawMaterial.SetVector("Coordinate", new Vector4(_hit.textureCoord.x, _hit.textureCoord.y ,0 ,0));
+				//Debug.Log(_drawMaterial.GetVector("Coordinate"));
+				_temp = RenderTexture.GetTemporary(_spaltmap.width, _spaltmap.height, 0, RenderTextureFormat.ARGBFloat);
+				//RenderTexture temp = RenderTexture.GetTemporary(_spaltmap.width, _spaltmap.height, 0, RenderTextureFormat.ARGBFloat);
+				Graphics.Blit(_spaltmap, _temp);
+				Graphics.Blit(_temp, _spaltmap, _drawMaterial);
+				RenderTexture.ReleaseTemporary(_temp);
+
+			}
+		}
+	}
+
+	void OnGUI() {
+	  //GUI.DrawTexture(new Rect(0,0,256,256), _temp, ScaleMode.ScaleToFit, false, 1);
+      //GUI.DrawTexture(new Rect(0,0,256,256), _spaltmap, ScaleMode.ScaleToFit, false, 1);
+	}
+}
