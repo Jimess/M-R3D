@@ -1,5 +1,6 @@
 using ProceduralToolkit.Examples.UI;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace ProceduralToolkit.Examples
 {
@@ -31,6 +32,7 @@ namespace ProceduralToolkit.Examples
 
         private void Awake()
         {
+
             Generate();
             SetupSkyboxAndPalette();
 

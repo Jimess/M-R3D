@@ -64,7 +64,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _SandTex:
         m_Texture: {fileID: 2800000, guid: 8a1099672e7f1dd42af0e089d4389ca3, type: 3}
-        m_Scale: {x: 4, y: 4}
+        m_Scale: {x: 10.81, y: 21.97}
         m_Offset: {x: 0, y: 0}
     - _Splat:
         m_Texture: {fileID: 0}
