@@ -54,7 +54,6 @@ MonoBehaviour:
   lastPos: {x: 0, y: 0, z: 0}
   curPos: {x: 0, y: 0, z: 0}
   offsetY: 1
-  cdSlider: {fileID: 114737143714535620, guid: 9e379d9f04efec44584b1784a99eddf2, type: 2}
-  particles: {fileID: 198038258193384804, guid: 2288d40862f4510419c3fdf4401b06cb,
-    type: 2}
+  cdSlider: {fileID: 0}
+  particles: {fileID: 0}
   isSwiping: 0
