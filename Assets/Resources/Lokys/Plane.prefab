@@ -144,6 +144,8 @@ MonoBehaviour:
   terrainMeshCollider: {fileID: 64303372361533540}
   leftPanel: {fileID: 0}
   constantSeed: 0
+  noise_offset: 0
+  seed: 0
   config:
     terrainSize: {x: 10, y: 4, z: 40}
     cellSize: 1
@@ -177,6 +179,7 @@ MonoBehaviour:
       m_Mode: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
+    noise_offset: 0
 --- !u!114 &114244861007967626
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -53,7 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4691829590766094}
   m_Layer: 0
-  m_Name: Wallet
+  m_Name: WalletSmall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
