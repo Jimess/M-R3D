@@ -27,6 +27,8 @@ public class DrawWithMouse : MonoBehaviour {
 		_spaltmap = new RenderTexture(200,200,0,RenderTextureFormat.ARGBFloat);
 
 		_sandMaterial.SetTexture("_Splat", _spaltmap);
+
+		_camera = Camera.main;
 	}
 	
 	// Update is called once per frame
