@@ -9,6 +9,7 @@ public class DrawWithMouse : MonoBehaviour {
 	private RenderTexture _spaltmap;
 	private Material _sandMaterial, _drawMaterial;
 	private RaycastHit _hit;
+	private RaycastHit[] _hits;
 
 	public RenderTexture _temp;
 
@@ -47,31 +48,59 @@ public class DrawWithMouse : MonoBehaviour {
 
 		if (Input.GetKey(KeyCode.Mouse0)) {
 			mouseM.isSwiping = true;
+
+
+			_hits = (Physics.RaycastAll(_camera.ScreenPointToRay(Input.mousePosition), 500f, mask.value));
+			foreach (RaycastHit hit in _hits) {
+				
+				if (hit.collider.gameObject.tag == "Prop") {
+					hit.collider.GetComponent<PropController>().PropHover();
+				} else if (mouseM.cdSlider.value < 1f) {
+					// 	// MOUSE MANAGER PART
+					mouseM.lastPos = mouseM.curPos;
+					mouseM.curPos = hit.point;
+
+					Vector4 temp_vec = new Vector4(hit.textureCoord.x, hit.textureCoord.y ,0 ,0);
+					//Debug.Log(temp_vec);
+					_drawMaterial.SetVector("_Coordinate", temp_vec);
+					
+					//_drawMaterial.SetVector("Coordinate", new Vector4(_hit.textureCoord.x, _hit.textureCoord.y ,0 ,0));
+					//Debug.Log(_drawMaterial.GetVector("Coordinate"));
+					_temp = RenderTexture.GetTemporary(_spaltmap.width, _spaltmap.height, 0, RenderTextureFormat.ARGBFloat);
+					//RenderTexture temp = RenderTexture.GetTemporary(_spaltmap.width, _spaltmap.height, 0, RenderTextureFormat.ARGBFloat);
+					Graphics.Blit(_spaltmap, _temp);
+					Graphics.Blit(_temp, _spaltmap, _drawMaterial);
+					RenderTexture.ReleaseTemporary(_temp);
+
+				}
+			}
+
 			//_drawMaterial.SetVector("_Coordinate", new Vector4(Random.Range(0f, 1f),Random.Range(0f, 1f),0,0));
 			//Debug.DrawRay (_camera.transform.position, _camera.transform.forward, Color.red);
-			if (Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out _hit, 500f, mask.value) && mouseM.cdSlider.value < 1f) {
-				//Debug.DrawRay(_camera.transform.position, _hit.point, Color.red);
+			// if (Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out _hit, 500f, mask.value) && mouseM.cdSlider.value < 1f) {
+			// 	//Debug.DrawRay(_camera.transform.position, _hit.point, Color.red);
 
-				// MOUSE MANAGER PART
-				mouseM.lastPos = mouseM.curPos;
-				mouseM.curPos = _hit.point;
+			// 	// MOUSE MANAGER PART
+			// 	mouseM.lastPos = mouseM.curPos;
+			// 	mouseM.curPos = _hit.point;
 
-				if (_hit.collider.gameObject.tag == "Prop") {
-					_hit.collider.GetComponent<PropController>().PropHover();
-				}
-				Vector4 temp_vec = new Vector4(_hit.textureCoord.x, _hit.textureCoord.y ,0 ,0);
-				//Debug.Log(temp_vec);
-				_drawMaterial.SetVector("_Coordinate", temp_vec);
+			// 	if (_hit.collider.gameObject.tag == "Prop") {
+			// 		_hit.collider.GetComponent<PropController>().PropHover();
+			// 	}
+			// 	Vector4 temp_vec = new Vector4(_hit.textureCoord.x, _hit.textureCoord.y ,0 ,0);
+			// 	//Debug.Log(temp_vec);
+			// 	_drawMaterial.SetVector("_Coordinate", temp_vec);
 				
-				//_drawMaterial.SetVector("Coordinate", new Vector4(_hit.textureCoord.x, _hit.textureCoord.y ,0 ,0));
-				//Debug.Log(_drawMaterial.GetVector("Coordinate"));
-				_temp = RenderTexture.GetTemporary(_spaltmap.width, _spaltmap.height, 0, RenderTextureFormat.ARGBFloat);
-				//RenderTexture temp = RenderTexture.GetTemporary(_spaltmap.width, _spaltmap.height, 0, RenderTextureFormat.ARGBFloat);
-				Graphics.Blit(_spaltmap, _temp);
-				Graphics.Blit(_temp, _spaltmap, _drawMaterial);
-				RenderTexture.ReleaseTemporary(_temp);
+			// 	//_drawMaterial.SetVector("Coordinate", new Vector4(_hit.textureCoord.x, _hit.textureCoord.y ,0 ,0));
+			// 	//Debug.Log(_drawMaterial.GetVector("Coordinate"));
+			// 	_temp = RenderTexture.GetTemporary(_spaltmap.width, _spaltmap.height, 0, RenderTextureFormat.ARGBFloat);
+			// 	//RenderTexture temp = RenderTexture.GetTemporary(_spaltmap.width, _spaltmap.height, 0, RenderTextureFormat.ARGBFloat);
+			// 	Graphics.Blit(_spaltmap, _temp);
+			// 	Graphics.Blit(_temp, _spaltmap, _drawMaterial);
+			// 	RenderTexture.ReleaseTemporary(_temp);
 
-			}
+			// }
+
 		} else {
 			mouseM.isSwiping = false;
 		}

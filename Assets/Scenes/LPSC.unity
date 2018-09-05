@@ -381,6 +381,11 @@ Prefab:
       propertyPath: mouseM
       value: 
       objectReference: {fileID: 919910913}
+    - target: {fileID: 114653903369433884, guid: 32924f5b1d9026d48aeb0857f8167176,
+        type: 2}
+      propertyPath: mask.m_Bits
+      value: 2560
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32924f5b1d9026d48aeb0857f8167176, type: 2}
   m_IsPrefabAsset: 0
