@@ -14,6 +14,8 @@ public class DrawWithMouse : MonoBehaviour {
 
 	public LayerMask mask;
 
+	public MouseManager mouseM;
+
 	// Use this for initialization
 	void Start () {
 		_drawMaterial = new Material(_drawShader);
@@ -29,11 +31,30 @@ public class DrawWithMouse : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		// Mouse UP for picking up props only HAS TO BE BEFORE MOUSEHOLD
+		if (Input.GetKeyUp(KeyCode.Mouse0) && mouseM.cdSlider.value < 1f) {
+			if (Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out _hit, 500f, mask.value)) {
+				if (_hit.collider.gameObject.tag == "Prop") {
+					_hit.collider.GetComponent<PropController>().PropClick();
+					mouseM.cdSlider.value += 1f/3f;
+				}
+			}
+		}
+
 		if (Input.GetKey(KeyCode.Mouse0)) {
+			mouseM.isSwiping = true;
 			//_drawMaterial.SetVector("_Coordinate", new Vector4(Random.Range(0f, 1f),Random.Range(0f, 1f),0,0));
 			//Debug.DrawRay (_camera.transform.position, _camera.transform.forward, Color.red);
-			if (Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out _hit, 500f, mask.value)) {
+			if (Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out _hit, 500f, mask.value) && mouseM.cdSlider.value < 1f) {
 				//Debug.DrawRay(_camera.transform.position, _hit.point, Color.red);
+
+				// MOUSE MANAGER PART
+				mouseM.lastPos = mouseM.curPos;
+				mouseM.curPos = _hit.point;
+
+				if (_hit.collider.gameObject.tag == "Prop") {
+					_hit.collider.GetComponent<PropController>().PropHover();
+				}
 				Vector4 temp_vec = new Vector4(_hit.textureCoord.x, _hit.textureCoord.y ,0 ,0);
 				//Debug.Log(temp_vec);
 				_drawMaterial.SetVector("_Coordinate", temp_vec);
@@ -47,6 +68,8 @@ public class DrawWithMouse : MonoBehaviour {
 				RenderTexture.ReleaseTemporary(_temp);
 
 			}
+		} else {
+			mouseM.isSwiping = false;
 		}
 	}
 

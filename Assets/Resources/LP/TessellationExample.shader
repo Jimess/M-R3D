@@ -11,7 +11,7 @@
 
             _Splat ("SplatMap", 2D) = "black" {}
             _NormalMap ("Normalmap", 2D) = "bump" {}
-            _Displacement ("Displacement", Range(0, 1.0)) = 0.3
+            _Displacement ("Displacement", Range(0, 4.0)) = 0.3
             
             _SpecColor ("Spec color", color) = (0.5,0.5,0.5,0.5)
         }
