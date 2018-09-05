@@ -18,6 +18,7 @@ public class MouseManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		particles = GameObject.FindGameObjectWithTag("MouseParticle").GetComponent<ParticleSystem>();
 		partTransform = particles.GetComponent<Transform>();
 		cdSlider.value = 0f;
 		

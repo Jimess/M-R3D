@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Riverbed
   - Prop
+  - MouseParticle
   layers:
   - Default
   - TransparentFX

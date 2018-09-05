@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4983290322710406}
   m_Layer: 0
-  m_Name: Phone
+  m_Name: PhoneSmall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

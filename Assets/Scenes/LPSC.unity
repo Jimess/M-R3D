@@ -749,6 +749,77 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1663313080
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4743906012858246, guid: 32924f5b1d9026d48aeb0857f8167176, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 10.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 4743906012858246, guid: 32924f5b1d9026d48aeb0857f8167176, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4743906012858246, guid: 32924f5b1d9026d48aeb0857f8167176, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -40.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4743906012858246, guid: 32924f5b1d9026d48aeb0857f8167176, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4743906012858246, guid: 32924f5b1d9026d48aeb0857f8167176, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4743906012858246, guid: 32924f5b1d9026d48aeb0857f8167176, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4743906012858246, guid: 32924f5b1d9026d48aeb0857f8167176, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4743906012858246, guid: 32924f5b1d9026d48aeb0857f8167176, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 64695632600197836, guid: 32924f5b1d9026d48aeb0857f8167176,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 1165854329}
+    - target: {fileID: 33573176649655466, guid: 32924f5b1d9026d48aeb0857f8167176,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 1165854329}
+    - target: {fileID: 114653903369433884, guid: 32924f5b1d9026d48aeb0857f8167176,
+        type: 2}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 1493188891}
+    - target: {fileID: 114653903369433884, guid: 32924f5b1d9026d48aeb0857f8167176,
+        type: 2}
+      propertyPath: mouseM
+      value: 
+      objectReference: {fileID: 919910913}
+    - target: {fileID: 114653903369433884, guid: 32924f5b1d9026d48aeb0857f8167176,
+        type: 2}
+      propertyPath: mask.m_Bits
+      value: 2560
+      objectReference: {fileID: 0}
+    - target: {fileID: 1312194206937372, guid: 32924f5b1d9026d48aeb0857f8167176, type: 2}
+      propertyPath: m_Name
+      value: Riverbed (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 32924f5b1d9026d48aeb0857f8167176, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!114 &1701655059 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114737143714535620, guid: 9e379d9f04efec44584b1784a99eddf2,

@@ -107,7 +107,7 @@ public class DrawWithMouse : MonoBehaviour {
 	}
 
 	void OnGUI() {
-	  //GUI.DrawTexture(new Rect(0,0,256,256), _temp, ScaleMode.ScaleToFit, false, 1);
+	  GUI.DrawTexture(new Rect(0,0,256,256), _temp, ScaleMode.ScaleToFit, false, 1);
       //GUI.DrawTexture(new Rect(0,0,256,256), _spaltmap, ScaleMode.ScaleToFit, false, 1);
 	}
 }
