@@ -29,6 +29,8 @@ public class DrawWithMouse : MonoBehaviour {
 		_sandMaterial.SetTexture("_Splat", _spaltmap);
 
 		_camera = Camera.main;
+
+		mouseM = GameObject.FindGameObjectWithTag("GameController").GetComponent<MouseManager>();
 	}
 	
 	// Update is called once per frame
