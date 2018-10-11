@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 23701762404205048}
   - component: {fileID: 64018413116610380}
   - component: {fileID: 114653903369433884}
+  - component: {fileID: 114100747529790290}
   m_Layer: 9
   m_Name: SandPlane
   m_TagString: Untagged
@@ -189,6 +190,19 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 0}
+--- !u!114 &114100747529790290
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1573819247552698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd82c09e84cd5b74c95274637e9e176d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _drawShader: {fileID: 4800000, guid: f1ec25338de725e40a4ca464093e3d60, type: 3}
+  _temp: {fileID: 0}
 --- !u!114 &114265080688452838
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -246,7 +260,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1312194206937372}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2dae9d15b2862d9468fc84e39856eb31, type: 3}
   m_Name: 
@@ -278,14 +292,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1573819247552698}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79fdfabae35f0224596cc81913a42af2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 0}
-  _drawShader: {fileID: 4800000, guid: f1ec25338de725e40a4ca464093e3d60, type: 3}
-  _temp: {fileID: 0}
   mask:
     serializedVersion: 2
     m_Bits: 2560

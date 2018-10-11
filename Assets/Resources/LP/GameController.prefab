@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4916527911522202}
   - component: {fileID: 114037209390137780}
+  - component: {fileID: 114692669580262770}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -54,7 +55,22 @@ MonoBehaviour:
   lastPos: {x: 0, y: 0, z: 0}
   curPos: {x: 0, y: 0, z: 0}
   offsetY: 1
-  cdSlider: {fileID: 114737143714535620, guid: 9e379d9f04efec44584b1784a99eddf2, type: 2}
-  particles: {fileID: 198038258193384804, guid: 2288d40862f4510419c3fdf4401b06cb,
-    type: 2}
+  cdSlider: {fileID: 0}
+  particles: {fileID: 0}
   isSwiping: 0
+--- !u!114 &114692669580262770
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1609506640001232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79fdfabae35f0224596cc81913a42af2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _camera: {fileID: 0}
+  mask:
+    serializedVersion: 2
+    m_Bits: 2560
+  mouseM: {fileID: 114037209390137780}

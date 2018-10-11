@@ -386,6 +386,16 @@ Prefab:
       propertyPath: mask.m_Bits
       value: 2560
       objectReference: {fileID: 0}
+    - target: {fileID: 114562119610948908, guid: 32924f5b1d9026d48aeb0857f8167176,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114653903369433884, guid: 32924f5b1d9026d48aeb0857f8167176,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32924f5b1d9026d48aeb0857f8167176, type: 2}
   m_IsPrefabAsset: 0
@@ -544,6 +554,24 @@ Mesh:
   m_MeshMetrics[0]: 1
   m_MeshMetrics[1]: 1
   m_MeshOptimized: 0
+--- !u!1 &1166865919 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1573819247552698, guid: 32924f5b1d9026d48aeb0857f8167176,
+    type: 2}
+  m_PrefabInternal: {fileID: 1663313080}
+--- !u!114 &1166865925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1166865919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd82c09e84cd5b74c95274637e9e176d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _drawShader: {fileID: 4800000, guid: f1ec25338de725e40a4ca464093e3d60, type: 3}
+  _temp: {fileID: 0}
 --- !u!1 &1389673720
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,6 +777,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1530242444 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1609506640001232, guid: 4de1f8f04a726c941bc906e25c8d9705,
+    type: 2}
+  m_PrefabInternal: {fileID: 529335692}
+--- !u!114 &1530242445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1530242444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79fdfabae35f0224596cc81913a42af2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _camera: {fileID: 0}
+  mask:
+    serializedVersion: 2
+    m_Bits: 2560
+  mouseM: {fileID: 919910913}
 --- !u!1001 &1663313080
 Prefab:
   m_ObjectHideFlags: 0
@@ -817,9 +866,42 @@ Prefab:
       propertyPath: m_Name
       value: Riverbed (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114562119610948908, guid: 32924f5b1d9026d48aeb0857f8167176,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23701762404205048, guid: 32924f5b1d9026d48aeb0857f8167176,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d4f8a5862b395d24ab5cc63d5566408f, type: 2}
+    - target: {fileID: 114653903369433884, guid: 32924f5b1d9026d48aeb0857f8167176,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32924f5b1d9026d48aeb0857f8167176, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1668971016 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1573819247552698, guid: 32924f5b1d9026d48aeb0857f8167176,
+    type: 2}
+  m_PrefabInternal: {fileID: 1125008287}
+--- !u!114 &1668971017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1668971016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd82c09e84cd5b74c95274637e9e176d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _drawShader: {fileID: 4800000, guid: f1ec25338de725e40a4ca464093e3d60, type: 3}
+  _temp: {fileID: 0}
 --- !u!114 &1701655059 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114737143714535620, guid: 9e379d9f04efec44584b1784a99eddf2,
